@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("v2/top-headlines?country=us&category=business&apiKey=dac197ed7e30405ca9e00f86adfa4036")
-    suspend fun getAllNews(): AllNewsResponse
+    @GET("v2/everything?q=tesla&from=2023-07-09&sortBy=publishedAt&apiKey=dac197ed7e30405ca9e00f86adfa4036")
+    suspend fun getAllNewsRemote(): AllNewsResponse
 
 }

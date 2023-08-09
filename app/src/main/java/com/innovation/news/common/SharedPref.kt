@@ -1,7 +1,6 @@
 package com.innovation.news.common
 
 import android.content.Context
-import androidx.core.content.edit
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

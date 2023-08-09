@@ -13,6 +13,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.innovation.news.R
 import com.innovation.news.app.activity.MainActivity
+import com.innovation.news.common.Constants.CLICK_SAVE
+import com.innovation.news.common.Constants.CLICK_SHARE
 import com.innovation.news.common.UiStateList
 import com.innovation.news.data.models.model.NewsModel
 import com.innovation.news.databinding.FragmentHomeBinding
@@ -26,7 +28,17 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<HomeViewModel>()
-    private val adapter by lazy { NewsItewAdapter() }
+    private val adapter by lazy { NewsItewAdapter(){data, position, clickType ->
+        when(clickType){
+            CLICK_SAVE-> {
+                viewModel.updateNewsLocal(data)
+            }
+
+            CLICK_SHARE ->{
+
+            }
+        }
+    } }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +51,8 @@ class HomeFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel.getAllNews()
+        viewModel.getAllNewsRemote()
+        viewModel.invoke()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

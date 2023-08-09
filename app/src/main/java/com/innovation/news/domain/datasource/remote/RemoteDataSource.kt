@@ -4,6 +4,6 @@ import com.innovation.news.data.models.response.AllNewsResponse
 
 interface RemoteDataSource {
 
-    suspend fun getAllNews(): AllNewsResponse
+    suspend fun getAllNewsRemote(): AllNewsResponse
 
 }

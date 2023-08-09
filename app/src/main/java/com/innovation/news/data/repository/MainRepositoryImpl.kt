@@ -1,5 +1,6 @@
 package com.innovation.news.data.repository
 
+import com.innovation.news.data.models.entity.NewsEntity
 import com.innovation.news.data.models.response.AllNewsResponse
 import com.innovation.news.domain.datasource.local.LocalDataSource
 import com.innovation.news.domain.datasource.remote.RemoteDataSource
@@ -11,8 +12,19 @@ class MainRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : MainRepository {
 
-    override suspend fun getAllNews(): AllNewsResponse {
-        return remoteDataSource.getAllNews()
-    }
+    //remote data source
+
+    override suspend fun getAllNewsRemote(): AllNewsResponse = remoteDataSource.getAllNewsRemote()
+
+    //local data source
+
+    override suspend fun insertNewsListLocal(newsEntityList: List<NewsEntity>) = localDataSource.insertNewsListLocal(newsEntityList)
+
+    override suspend fun getAllNewsLocal() = localDataSource.getAllNewsLocal()
+
+    override suspend fun updateNewsLocal(newsEntity: NewsEntity) = localDataSource.updateNewsLocal(newsEntity)
+
+    override suspend fun getSavedNewsList() = localDataSource.getSavedNewsList()
+
 
 }
