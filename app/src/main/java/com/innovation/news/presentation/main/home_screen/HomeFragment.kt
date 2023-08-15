@@ -51,8 +51,8 @@ class HomeFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel.getAllNewsRemote()
         viewModel.invoke()
+        viewModel.getAllNewsRemote()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
