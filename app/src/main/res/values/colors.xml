@@ -6,4 +6,8 @@
     <color name="grey">#A2A2A3</color>
     <color name="dark_enable">#313439</color>
     <color name="blue">#2196F3</color>
+
+    <color name="text_color">#000000</color>
+    <color name="text_color_2">#50212121</color>
+    <color name="edit_backgroung">#F5F5F5</color>
 </resources>

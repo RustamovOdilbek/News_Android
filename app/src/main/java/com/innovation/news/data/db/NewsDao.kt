@@ -1,5 +1,6 @@
 package com.innovation.news.data.db
 
+import android.provider.ContactsContract.CommonDataKinds.Note
 import android.util.Log
 import androidx.room.Dao
 import androidx.room.Insert
@@ -9,6 +10,7 @@ import androidx.room.Transaction
 import androidx.room.Update
 import com.innovation.news.common.Constants.TABLE_NAME
 import com.innovation.news.data.models.entity.NewsEntity
+
 
 @Dao
 interface NewsDao {
@@ -42,5 +44,9 @@ interface NewsDao {
 
     @Query("SELECT * FROM $TABLE_NAME WHERE isSaved = 1")
     suspend fun getSavedNewsList(): List<NewsEntity>
+
+
+    @Query("SELECT * FROM  $TABLE_NAME WHERE title LIKE :searchString or content LIKE :searchString or author LIKE :searchString")
+    fun getSearchNewsEntity(searchString: String): List<NewsEntity>
 
 }

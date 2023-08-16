@@ -26,5 +26,7 @@ class MainRepositoryImpl @Inject constructor(
 
     override suspend fun getSavedNewsList() = localDataSource.getSavedNewsList()
 
+    override suspend fun getSearchNewsEntity(searchString: String): List<NewsEntity> = localDataSource.getSearchNewsEntity(searchString)
+
 
 }

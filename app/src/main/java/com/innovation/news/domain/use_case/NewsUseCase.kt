@@ -13,4 +13,6 @@ interface NewsUseCase {
 
     suspend fun getSavedNewsList(): Result<List<NewsModel>>
 
+    suspend fun getSearchNewsEntity(searchString: String): Result<List<NewsModel>>
+
 }

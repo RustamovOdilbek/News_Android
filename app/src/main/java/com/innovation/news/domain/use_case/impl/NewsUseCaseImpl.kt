@@ -45,9 +45,24 @@ class NewsUseCaseImpl @Inject constructor(private val mainRepository: MainReposi
 
     }
 
-    override suspend fun getSavedNewsList():  Result<List<NewsModel>> {
+    override suspend fun getSavedNewsList(): Result<List<NewsModel>> {
         return try {
             val response = mainRepository.getSavedNewsList()
+
+            val newsModels = response.map { newsLocal ->
+                Mapper.newsLocalToNewsModel(newsLocal)
+            }
+
+            Result.success(newsModels)
+        } catch (e: Throwable) {
+            Result.failure(e)
+        }
+    }
+
+
+    override suspend fun getSearchNewsEntity(searchString: String): Result<List<NewsModel>>{
+        return try {
+            val response = mainRepository.getSearchNewsEntity(searchString)
 
             val newsModels = response.map { newsLocal ->
                 Mapper.newsLocalToNewsModel(newsLocal)

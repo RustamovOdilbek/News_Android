@@ -32,12 +32,13 @@
                     android:text="US Business News  Saved"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toStartOf="@id/ivSearch"
+                    app:layout_constraintEnd_toStartOf="@id/ivSave"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <ImageView
+                    android:id="@+id/ivSave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_nav_saved"

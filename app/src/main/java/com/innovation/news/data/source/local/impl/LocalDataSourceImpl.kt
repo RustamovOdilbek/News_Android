@@ -14,4 +14,6 @@ class LocalDataSourceImpl @Inject constructor(private val newsDao: NewsDao): Loc
     override suspend fun updateNewsLocal(newsEntity: NewsEntity) = newsDao.updateNewsLocal(newsEntity)
 
     override suspend fun getSavedNewsList() = newsDao.getSavedNewsList()
+
+    override suspend fun getSearchNewsEntity(searchString: String): List<NewsEntity> = newsDao.getSearchNewsEntity(searchString)
 }

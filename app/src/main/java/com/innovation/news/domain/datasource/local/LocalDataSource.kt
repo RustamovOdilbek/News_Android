@@ -12,4 +12,6 @@ interface LocalDataSource {
 
     suspend fun getSavedNewsList(): List<NewsEntity>
 
+    suspend fun getSearchNewsEntity(searchString: String): List<NewsEntity>
+
 }
